@@ -1,0 +1,140 @@
+<!DOCTYPE html> 
+<html > 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<title>JAVASCRIPT之导航栏鼠标点击变色特效</title> 
+<style type="text/css"> 
+
+
+body { 
+  font-size:12px; 
+  font-family: Arial, Helvetica, sans-serif; 
+} 
+
+li{
+  display: inline;
+}
+
+/*被点击元素的样式*/
+.ts_seled { 
+  color: white;
+  background-color: red; 
+} 
+
+/*默认的样式*/
+.ts_sel { 
+  color:#666; 
+} 
+
+li{
+  list-style-type:none;
+
+}
+</style> 
+<script language="javascript"> 
+window.onload = initLinkStyle; 
+function initLinkStyle() { 
+
+//初始化分类项
+  if(document.getElementsByName('fenlei')){ 
+    var fenleizu = document.getElementsByName('fenlei'); 
+    for(i = 0; i < fenleizu.length; i++) { 
+      var link = fenleizu[i]; 
+      link.className='ts_sel';     
+      link.onclick = fenlei;   
+    } 
+  } 
+
+//初始化年级项
+  if(document.getElementsByName('nianji')){ 
+    var nianjizu = document.getElementsByName('nianji'); 
+    for(i = 0; i < nianjizu.length; i++) { 
+      var link = nianjizu[i]; 
+      link.className='ts_sel';     
+      link.onclick = nianji;   
+    } 
+  } 
+
+
+
+
+} 
+/** 
+ * 执行点击事件 
+ * @param {Object} event 鼠标事件 
+ */
+ //分类项点击变色;并且变换内容
+function fenlei(event) { 
+  var target = event.currentTarget;   
+  var zhi = this.id;
+  alert(zhi);
+  //把所有按钮的颜色恢复到默认颜色
+  if(document.getElementsByName('fenlei')){ 
+    var arrLink = document.getElementsByName('fenlei'); 
+    for(i = 0; i < arrLink.length; i++) { 
+      var link = arrLink[i]; 
+      if(link.className == 'ts_seled') { 
+        link.className = 'ts_sel'; 
+      } 
+    } 
+  } 
+  //把当前点击的按钮的颜色变色
+  target.className = 'ts_seled'; 
+  return false;//阻止浏览器默认事件 
+} 
+
+
+//年级项点击变色;并且变换内容
+function nianji(event) { 
+  var target = event.currentTarget;   
+
+  //把所有按钮的颜色恢复到默认颜色
+  if(document.getElementsByName('nianji')){ 
+    var arrLink = document.getElementsByName('nianji'); 
+    for(i = 0; i < arrLink.length; i++) { 
+      var link = arrLink[i]; 
+      if(link.className == 'ts_seled') { 
+        link.className = 'ts_sel'; 
+      } 
+    } 
+  } 
+  //把当前点击的按钮的颜色变色
+  target.className = 'ts_seled'; 
+  return false;//阻止浏览器默认事件 
+} 
+
+
+</script> 
+</head> 
+<body> 
+  
+  请选择分类：
+  <ul> 
+    <li>           
+      <button href="#" rel="external nofollow" rel="external nofollow" rel="external nofollow" name="fenlei" id="文学">文学</button> 
+    </li> 
+    <li>           
+      <button href="#" rel="external nofollow" rel="external nofollow" rel="external nofollow" name="fenlei">社会科学</button> 
+    </li> 
+    <li>           
+      <button href="#" rel="external nofollow" rel="external nofollow" rel="external nofollow" name="fenlei">艺术</button> 
+    </li> 
+  </ul> 
+
+
+  请选择年级：
+  <ul> 
+    <li>           
+      <button href="#" rel="external nofollow" rel="external nofollow" rel="external nofollow" name="nianji">1-2年级</button> 
+    </li> 
+    <li>           
+      <button href="#" rel="external nofollow" rel="external nofollow" rel="external nofollow" name="nianji">3-4年级</button> 
+    </li> 
+    <li>           
+      <button href="#" rel="external nofollow" rel="external nofollow" rel="external nofollow" name="nianji">5-6年级</button> 
+    </li> 
+  </ul> 
+
+
+</body> 
+</html>
